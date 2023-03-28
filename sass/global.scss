@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu Mono", monospace;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  min-width: 320px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.close {
+  display: none;
+}
+
+.open {
+  position: relative;
+  width: 90vw;
+  height: fit-content;
+  background-color: rgb(4, 0, 122);
+  outline: solid 5px rgb(0, 204, 255);
+  margin: auto;
+  padding: 5vh 20px;
+  min-width: fit-content;
+}

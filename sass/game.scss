@@ -1,0 +1,28 @@
+.game__color-word {
+  display: block;
+  font-size: 1.5em;
+
+  &:hover {
+    animation-name: rotate-word;
+    animation-duration: 2s;
+  }
+}
+
+@keyframes rotate-word {
+  from {
+    transform: rotateY(0);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0);
+  }
+}
+
+.game__pause {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-image: url(../img/pause.png);
+}

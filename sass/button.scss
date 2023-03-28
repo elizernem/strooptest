@@ -1,0 +1,16 @@
+.button {
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  background-color: transparent;
+  background-position: center;
+  border: none;
+
+  @media (max-width: 510px) {
+    width: 40px;
+    height: 40px;
+    background-size: 30px 30px;
+  }
+}

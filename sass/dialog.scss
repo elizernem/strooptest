@@ -1,0 +1,117 @@
+.dialog {
+  background-color: rgb(4, 0, 122);
+  border: 10px solid white;
+  width: 90vw;
+
+  &::backdrop {
+    background-color: black;
+  }
+}
+
+.dialog__wrapper {
+  display: grid;
+}
+
+.dialog__img {
+  width: 100%;
+  height: auto;
+}
+
+.dialog__description {
+  color: #fff;
+  line-height: 1.5;
+  font-size: calc(16px + 1.25vw);
+}
+
+.dialog__close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-image: url(../img/close.png);
+}
+
+.dialog__statistics {
+  font-size: calc(18px + 1.25vw);
+  color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  white-space: nowrap;
+
+  @media (max-width: 510px) {
+    font-size: calc(14px + 1.25vw);
+  }
+
+  @media (max-width: 360px) {
+    font-size: calc(10px + 1.25vw);
+  }
+}
+
+.dialog__key {
+  padding-right: 10px;
+}
+
+.dialog__key:nth-of-type(even),
+.dialog__value:nth-of-type(even) {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.dialog__value {
+  width: 50%;
+  margin: 0;
+  padding-left: 5%;
+  border-left: 2px solid white;
+}
+
+.dialog__color-word {
+  display: block;
+  font-size: 1.5em;
+}
+
+.dialog__buttons-wrapper {
+  margin-bottom: 30px;
+}
+
+.dialog__note {
+  display: none;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+
+  &--correct {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    background-color: transparent;
+    background-position: center;
+    border: none;
+    background-image: url(../img/correct.png);
+    animation-name: show-correct;
+    animation-duration: 2s;
+  }
+
+  &--falsy {
+    display: block;
+    color: white;
+    width: 100px;
+    height: fit-content;
+  }
+}
+
+@keyframes show-correct {
+  from {
+    transform: rotate(-90deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(-45deg);
+  }
+  75% {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}

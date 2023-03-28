@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="modal open">
+      <h2 class="modal__instruction instruction">
+        Нажимай на кнопки того цвета,<br />
+        которым написано слово
+      </h2>
+      <div class="modal__buttons-wrapper">
+        <button class="modal__button modal__button--start start" type="button">
+          СТАРТ!
+        </button>
+        <button
+          class="modal__button modal__button--info"
+          type="button"
+          onclick="window.modalInfo.showModal();"
+        >
+          Пример
+        </button>
+        <dialog class="modal__info dialog" id="modalInfo">
+          <div class="dialog__wrapper">
+            <span class="dialog__note"></span>
+            <div class="dialog__instruction instruction">
+              <h2 class="dialog__title title">Нажми на</h2>
+              <span class="dialog__color-word green-word">красный</span>
+            </div>
+            <div class="dialog__buttons-wrapper wrapper">
+              <button
+                class="dialog__button play-button yellow"
+                type="button"
+              ></button>
+              <button
+                class="dialog__button play-button play-button--correct green"
+                type="button"
+              ></button>
+              <button
+                class="dialog__button play-button play-button--falsy red"
+                type="button"
+              ></button>
+              <button
+                class="dialog__button play-button pink"
+                type="button"
+              ></button>
+            </div>
+            <span class="dialog__description"
+              >Здесь нужно нажать на зелёную кнопку, потому что слово написано
+              зелёным цветом</span
+            >
+            <button class="dialog__close button" type="button"></button>
+          </div>
+        </dialog>
+      </div>
+    </section>
+    <section class="game close">
+      <div class="game__instruction instruction">
+        <h2 class="game__title title">Нажми на</h2>
+        <span class="game__color-word color-word">красный</span>
+        <button
+          class="game__pause button"
+          type="button"
+          onclick="window.statistics.showModal();"
+        ></button>
+      </div>
+      <div class="game__buttons-wrapper wrapper">
+        <button class="game__button play-button" type="button"></button>
+        <button class="game__button play-button" type="button"></button>
+        <button class="game__button play-button" type="button"></button>
+        <button class="game__button play-button" type="button"></button>
+      </div>
+      <dialog class="game__statistics dialog" id="statistics">
+        <div class="dialog__wrapper">
+          <h2 class="visually-hidden">Это тест струпа</h2>
+          <dl class="dialog__statistics">
+            <dt class="dialog__key">Время игры:</dt>
+            <dd class="dialog__value time">1</dd>
+            <dt class="dialog__key">Всего кликов:</dt>
+            <dd class="dialog__value clicks">1</dd>
+            <dt class="dialog__key">Правильных:</dt>
+            <dd class="dialog__value correct-answers">1</dd>
+            <dt class="dialog__key">Неправильных:</dt>
+            <dd class="dialog__value error-answers">1</dd>
+            <dt class="dialog__key">Ошибки из-за дистрактора:</dt>
+            <dd class="dialog__value distractor-errors">1</dd>
+          </dl>
+          <button
+            class="dialog__close button button--close"
+            type="button"
+            onclick="window.statistics.close();"
+          ></button>
+        </div>
+      </dialog>
+    </section>
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+.modal__buttons-wrapper {
+  display: flex;
+}
+
+.modal__button {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: calc(16px + 16 * (100vw / 1280));
+  text-transform: uppercase;
+  color: white;
+  width: 30vw;
+  height: 10vh;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid white;
+  border-radius: 5px;
+
+  &--start {
+    background-color: rgb(122, 201, 4);
+  }
+
+  &--info {
+    background-color: orange;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.8);
+  }
+
+  @media (max-width: 510px) {
+    font-size: calc(16px + 1.25vw);
+    width: 26vw;
+    height: 10vh;
+  }
+}
