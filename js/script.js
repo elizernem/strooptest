@@ -29,16 +29,22 @@ const instructionModal = document.querySelector(".modal__info");
 const instructionEstimate = document.querySelector(".dialog__note");
 const modalCloseButton = document.querySelector(".dialog__close");
 
+const instructionButtons = document.querySelector(".wrapper");
+const instructionButtonsElement = Array.from(
+  instructionButtons.querySelectorAll(".dialog__button")
+);
+
+const classNames = {
+  hidden: "visually-hidden",
+  correctButton: "play-button--correct",
+  distractorButton: "play-button--falsy",
+  correctNote: "dialog__note dialog__note--correct",
+  errorNote: "dialog__note dialog__note--falsy",
+};
+
 //Arrays with colors in english and in russian
 const colorsKeys = Object.keys(PLAY_COLORS);
 const colorsValues = Object.values(PLAY_COLORS);
-
-// startButton.addEventListener("click", () => {
-//   modal.classList.remove("open");
-//   modal.classList.add("close");
-//   gameBoard.classList.remove("close");
-//   gameBoard.classList.add("open");
-// });
 
 const switchScreen = (popup, mainScreen) => {
   popup.classList.remove("open");
@@ -51,20 +57,35 @@ startButton.addEventListener("click", () => {
   switchScreen(modal, gameBoard);
 });
 
-introCorrectButton.addEventListener("click", () => {
-  instructionEstimate.classList.remove("dialog__note--falsy");
-  instructionEstimate.classList.add("dialog__note--correct");
-  instructionEstimate.textContent = "";
+const checkAnswer = (target, result) => {
+  if (target.classList.contains(`${classNames.correctButton}`)) {
+    result.className = `${classNames.correctNote}`;
+    result.textContent = "";
+  } else if (target.classList.contains(`${classNames.distractorButton}`)) {
+    result.className = `${classNames.errorNote}`;
+    result.textContent = "Смотри на цвет слова, не на его значение!";
+  } else {
+    result.className = `${classNames.errorNote}`;
+    result.textContent = "Попробуй ещё!";
+    target.classList.add(`${classNames.hidden}`);
+  }
+};
+
+instructionButtons.addEventListener("click", (event) => {
+  checkAnswer(event.target, instructionEstimate);
 });
 
-introDistractorButton.addEventListener("click", () => {
-  instructionEstimate.classList.remove("dialog__note--correct");
-  instructionEstimate.classList.add("dialog__note--falsy");
-  instructionEstimate.textContent = "Смотри на цвет слова, не на его значение!";
-});
+const resetValues = (note, buttons) => {
+  note.className = "dialog__note";
+  for (let i = 0; i < buttons.length; i++) {
+    if (buttons[i].classList.contains(`${classNames.hidden}`)) {
+      buttons[i].classList.remove(`${classNames.hidden}`);
+    }
+  }
+};
 
 modalCloseButton.addEventListener("click", () => {
-  instructionEstimate.classList.remove("dialog__note--correct");
+  resetValues(instructionEstimate, instructionButtonsElement);
   modalInfo.close();
 });
 
@@ -131,6 +152,20 @@ const giveWordText = (word, colors) => {
   word.textContent = wordTextValue;
 };
 
+const setCorrectAndFalsyButtons = (buttons) => {
+  let correctButton = randomArrayElement(buttons);
+  let falsyButton = randomArrayElement(buttons);
+  while (correctButton == falsyButton) {
+    falsyButton = randomArrayElement(buttons);
+  }
+  correctButton.classList.add(`correct`);
+  falsyButton.classList.add(`falsy`);
+  correctButton.classList.add(`${wordColorValue}`);
+  falsyButton.classList.add(
+    `${getKeyByValue(PLAY_COLORS, `${colorWord.textContent}`)}`
+  );
+};
+
 const giveButtonsColor = (buttons, colors) => {
   let unusedColors = colors.slice();
   unusedColors.splice(unusedColors.indexOf(wordColorValue), 1);
@@ -140,36 +175,20 @@ const giveButtonsColor = (buttons, colors) => {
     ),
     1
   );
-  let correctButton = randomArrayElement(buttons);
-  let falsyButton = randomArrayElement(buttons);
-  while (correctButton == falsyButton) {
-    falsyButton = randomArrayElement(buttons);
-  }
-  correctButton.classList.add(`correct`);
-  falsyButton.classList.add(`falsy`);
+
   for (let i = 0; i < buttons.length; i++) {
     buttonColorValue = randomArrayElement(unusedColors);
-    buttons[i].classList.add(`${buttonColorValue}`);
-    unusedColors.splice(unusedColors.indexOf(buttonColorValue), 1);
-  }
-  colorsKeys.forEach((color) => {
-    if (
-      correctButton.classList.contains(color) ||
-      falsyButton.classList.contains(color)
-    ) {
-      correctButton.classList.remove(color);
-      falsyButton.classList.remove(color);
+    if (buttons[i].className === "game__button play-button") {
+      buttons[i].classList.add(`${buttonColorValue}`);
+      unusedColors.splice(unusedColors.indexOf(buttonColorValue), 1);
     }
-  });
-  correctButton.classList.add(`${wordColorValue}`);
-  falsyButton.classList.add(
-    `${getKeyByValue(PLAY_COLORS, `${colorWord.textContent}`)}`
-  );
+  }
 };
 
 document.addEventListener("DOMContentLoaded", (ready) => {
   giveWordColor(colorWord);
   giveWordText(colorWord, colorsValues);
+  setCorrectAndFalsyButtons(colorButton);
   giveButtonsColor(colorButton, colorsKeys);
 });
 
@@ -178,25 +197,30 @@ let correctAnswers = 0;
 let errorAnswers = 0;
 let falseOfText = 0;
 
-function coloredButtonClick(event) {
+const getScore = (target) => {
   clicks++;
-  if (event.target.classList.contains("correct")) {
+  if (target.classList.contains("correct")) {
     correctAnswers++;
-  } else if (event.target.classList.contains("falsy")) {
+  } else if (target.classList.contains("falsy")) {
     falseOfText++;
     errorAnswers++;
   } else {
     errorAnswers++;
   }
+};
+
+const coloredButtonOnClick = (event) => {
+  getScore(event.target);
   removeColoredWord(colorWord, colorsKeys);
   removeColors(colorButton, colorsKeys);
   removeBoolean(colorButton);
   giveWordColor(colorWord);
   giveWordText(colorWord, colorsValues);
+  setCorrectAndFalsyButtons(colorButton);
   giveButtonsColor(colorButton, colorsKeys);
-}
+};
 
-colorButtonList.addEventListener("click", coloredButtonClick, true);
+colorButtonList.addEventListener("click", coloredButtonOnClick, true);
 
 pauseButton.addEventListener("click", () => {
   clicksNumberValue.textContent = clicks;

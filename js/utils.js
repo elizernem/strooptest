@@ -5,3 +5,5 @@ const randomArrayElement = (array) => {
 const getKeyByValue = (object, value) => {
   return Object.keys(object).find((key) => object[key] === value);
 };
+
+export { randomArrayElement, getKeyByValue };
