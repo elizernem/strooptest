@@ -53,8 +53,17 @@ const switchScreen = (popup, mainScreen) => {
   mainScreen.classList.add("open");
 };
 
+let startTimer;
+
+// const startTimer = () => {
+//   timer1 = new Date().getMilliseconds();
+//   console.log(timer1);
+// };
+
 startButton.addEventListener("click", () => {
   switchScreen(modal, gameBoard);
+  console.log(new Date());
+  startTimer = new Date();
 });
 
 const checkAnswer = (target, result) => {
@@ -222,9 +231,24 @@ const coloredButtonOnClick = (event) => {
 
 colorButtonList.addEventListener("click", coloredButtonOnClick, true);
 
+let endTimer;
+
 pauseButton.addEventListener("click", () => {
   clicksNumberValue.textContent = clicks;
   correctAnswersValue.textContent = correctAnswers;
   errorAnswersValue.textContent = errorAnswers;
   distractorErrorsValue.textContent = falseOfText;
+  // const dateFinish = new Data();
+  // timer2 = dateFinish;
+  // console.log(timer1 - timer2);
+  endTimer = new Date();
+  let diff = Math.abs((endTimer - startTimer) / 1000);
+  let diffRound = Math.round(Math.abs((endTimer - startTimer) / 1000));
+  console.log(endTimer);
+  console.log((endTimer - Math.floor(startTimer)) / 1000);
+  console.log(diffRound);
+  console.log(diff);
 });
+
+// const dateStart = new Data();
+// const dateFinish = new Data();

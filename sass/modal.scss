@@ -3,6 +3,7 @@
 }
 
 .modal__button {
+  cursor: pointer;
   font-family: inherit;
   font-weight: 700;
   font-size: calc(16px + 16 * (100vw / 1280));
