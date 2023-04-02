@@ -3,6 +3,7 @@
   border: 10px solid white;
   width: 90vw;
   padding: 0;
+  color: #fff;
 
   &::backdrop {
     background-color: black;
@@ -28,7 +29,6 @@
 }
 
 .dialog__description {
-  color: #fff;
   line-height: 1.5;
   font-size: calc(16px + 1.25vw);
 }
@@ -62,7 +62,6 @@
 
   &--falsy {
     display: block;
-    color: white;
     width: 100px;
     height: fit-content;
   }

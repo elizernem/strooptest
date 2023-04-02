@@ -1,17 +1,16 @@
-.instruction {
-  font-size: calc(32px + 16 * (100vw / 1280));
-  font-weight: 700;
-  color: white;
-  text-align: center;
-  width: fit-content;
-  margin: 0 auto;
-  margin-bottom: 5vh;
+// .instruction {
+//   font-size: calc(32px + 16 * (100vw / 1280));
+//   font-weight: 700;
+//   text-align: center;
+//   width: fit-content;
+//   margin: 0 auto;
+//   margin-bottom: 5vh;
 
-  @media (max-width: 768px) {
-    font-size: calc(24px + 16 * (100vw / 1280));
-  }
+//   @media (max-width: 768px) {
+//     font-size: calc(24px + 16 * (100vw / 1280));
+//   }
 
-  @media (max-width: 510px) {
-    font-size: calc(24px + 16 * (100vw / 1280));
-  }
-}
+//   @media (max-width: 510px) {
+//     font-size: calc(24px + 16 * (100vw / 1280));
+//   }
+// }

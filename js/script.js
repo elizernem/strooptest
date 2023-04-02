@@ -28,6 +28,7 @@ const introDistractorButton = document.querySelector(".play-button--falsy");
 const instructionModal = document.querySelector(".modal__info");
 const instructionEstimate = document.querySelector(".dialog__note");
 const modalCloseButton = document.querySelector(".dialog__close");
+const settingsCloseButton = document.querySelector(".settings__close");
 
 const instructionButtons = document.querySelector(".wrapper");
 const instructionButtonsElement = Array.from(

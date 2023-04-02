@@ -16,10 +16,14 @@
   <body>
     <h1 class="visually-hidden">Тест Струпа - модификация с кнопками.</h1>
     <section class="modal open">
-      <h2 class="modal__instruction instruction">
+      <h2 class="modal__instruction title title--big instruction">
         Нажимай на кнопки того цвета,<br />
         которым написано слово
       </h2>
+      <button
+        class="modal__settings button button--settings"
+        type="button"
+      ></button>
       <div class="modal__buttons-wrapper">
         <button class="modal__button modal__button--start start" type="button">
           СТАРТ!
@@ -35,7 +39,7 @@
           <div class="dialog__wrapper">
             <span class="dialog__note"></span>
             <div class="dialog__instruction instruction">
-              <h2 class="dialog__title title">Нажми на</h2>
+              <h2 class="dialog__title title title--small">Нажми на</h2>
               <span class="dialog__color-word green-word">красный</span>
             </div>
             <div class="dialog__buttons-wrapper wrapper">
@@ -68,9 +72,80 @@
         </dialog>
       </div>
     </section>
+    <section class="settings close">
+      <div class="settings__main-wrapper">
+        <h2 class="settings__title title title--big">Настройки игры</h2>
+        <!-- <div class="settings__wrapper"> -->
+        <div class="settings__container settings__container--timer timer">
+          <h3 class="settings__subtitle title title--small">
+            Ограничение по времени
+          </h3>
+          <div class="settings__radio-wrapper">
+            <label class="settings__label"
+              ><input
+                class="settings__radio timer__yes visually-hidden"
+                type="radio"
+                name="time"
+                value="yes" />
+              <span class="settings__control-label">Да</span>
+              <span class="settings__control"></span
+            ></label>
+            <label class="settings__label"
+              ><input
+                class="settings__radio timer__no visually-hidden"
+                type="radio"
+                name="time"
+                value="no"
+                checked />
+              <span class="settings__control-label">Нет</span>
+              <span class="settings__control"></span
+            ></label>
+          </div>
+        </div>
+        <input class="settings__range settings__range--timer" type="number" />
+        <div class="settings__container settings__container--clicks clicks">
+          <h3 class="settings__subtitle title title--small">
+            Ограничение по кликам
+          </h3>
+          <div class="settings__radio-wrapper">
+            <label class="settings__label"
+              ><input
+                class="settings__radio clicks__yes visually-hidden"
+                type="radio"
+                name="click"
+                value="yes"
+                id="click-yes"
+              />
+              <span class="settings__control-label">Да</span>
+              <span class="settings__control"></span>
+            </label>
+            <label class="settings__label"
+              ><input
+                class="settings__radio clicks__no visually-hidden"
+                type="radio"
+                name="click"
+                value="no"
+                id="click-no"
+                checked
+              />
+              <span class="settings__control-label">Нет</span>
+              <span class="settings__control"></span>
+            </label>
+          </div>
+        </div>
+        <input class="settings__range settings__range--clicks" type="number" />
+        <button class="settings__submit" type="button">ОК</button>
+      </div>
+      <button
+        class="settings__close button button--close"
+        type="button"
+      ></button>
+      <!-- <button class="settings__submit" type="button">ОК</button> -->
+      <!-- </div> -->
+    </section>
     <section class="game close">
       <div class="game__instruction instruction">
-        <h2 class="game__title title">Нажми на</h2>
+        <h2 class="game__title title title--small">Нажми на</h2>
         <span class="game__color-word color-word">красный</span>
         <div class="game__wrapper">
           <button class="game__back button button--back" type="button"></button>

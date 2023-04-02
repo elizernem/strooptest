@@ -21,6 +21,10 @@
     background-image: url(../img/pause.png);
   }
 
+  &--settings {
+    background-image: url(../img/settings.png);
+  }
+
   @media (max-width: 560px) {
     width: 35px;
     height: 35px;
