@@ -1,0 +1,39 @@
+.statistics__container {
+  display: block;
+  font-size: calc(32px + 1.25vw);
+  color: white;
+  white-space: nowrap;
+  margin: 0;
+  padding-left: 4vw;
+
+  @media (max-width: 510px) {
+    font-size: calc(14px + 1.25vw);
+  }
+
+  @media (max-width: 360px) {
+    font-size: calc(10px + 1.25vw);
+  }
+}
+
+.statistics__wrapper {
+  display: block;
+}
+
+.statistics__key {
+  display: inline;
+}
+
+.statistics__value {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.statistics__close {
+  position: absolute;
+  right: 2vw;
+  top: 2vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}

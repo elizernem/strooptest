@@ -10,7 +10,7 @@
   text-transform: uppercase;
   color: white;
   width: 30vw;
-  height: 10vh;
+  height: 10vw;
   display: block;
   margin: 0 auto;
   border: 2px solid white;
@@ -35,6 +35,6 @@
   @media (max-width: 510px) {
     font-size: calc(16px + 1.25vw);
     width: 26vw;
-    height: 10vh;
+    height: 10vw;
   }
 }

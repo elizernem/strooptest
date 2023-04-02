@@ -14,6 +14,7 @@
     />
   </head>
   <body>
+    <h1 class="visually-hidden">Тест Струпа - модификация с кнопками.</h1>
     <section class="modal open">
       <h2 class="modal__instruction instruction">
         Нажимай на кнопки того цвета,<br />
@@ -59,7 +60,10 @@
               >Здесь нужно нажать на зелёную кнопку, потому что слово написано
               зелёным цветом</span
             >
-            <button class="dialog__close button" type="button"></button>
+            <button
+              class="dialog__close button button--close"
+              type="button"
+            ></button>
           </div>
         </dialog>
       </div>
@@ -68,11 +72,13 @@
       <div class="game__instruction instruction">
         <h2 class="game__title title">Нажми на</h2>
         <span class="game__color-word color-word">красный</span>
-        <button
-          class="game__pause button"
-          type="button"
-          onclick="window.statistics.showModal();"
-        ></button>
+        <div class="game__wrapper">
+          <button class="game__back button button--back" type="button"></button>
+          <button
+            class="game__pause button button--pause"
+            type="button"
+          ></button>
+        </div>
       </div>
       <div class="game__buttons-wrapper wrapper">
         <button class="game__button play-button" type="button"></button>
@@ -80,28 +86,35 @@
         <button class="game__button play-button" type="button"></button>
         <button class="game__button play-button" type="button"></button>
       </div>
-      <dialog class="game__statistics dialog" id="statistics">
-        <div class="dialog__wrapper">
-          <h2 class="visually-hidden">Это тест струпа</h2>
-          <dl class="dialog__statistics">
-            <dt class="dialog__key">Время игры:</dt>
-            <dd class="dialog__value time">1</dd>
-            <dt class="dialog__key">Всего кликов:</dt>
-            <dd class="dialog__value clicks">1</dd>
-            <dt class="dialog__key">Правильных:</dt>
-            <dd class="dialog__value correct-answers">1</dd>
-            <dt class="dialog__key">Неправильных:</dt>
-            <dd class="dialog__value error-answers">1</dd>
-            <dt class="dialog__key">Ошибки из-за дистрактора:</dt>
-            <dd class="dialog__value distractor-errors">1</dd>
-          </dl>
-          <button
-            class="dialog__close button button--close"
-            type="button"
-            onclick="window.statistics.close();"
-          ></button>
+    </section>
+    <section class="statistics close">
+      <button
+        class="statistics__close button button--close"
+        type="button"
+      ></button>
+      <h2 class="visually-hidden">Результаты игры.</h2>
+      <dl class="statistics__container">
+        <div class="statistics__wrapper">
+          <dt class="statistics__key">Время игры:</dt>
+          <dd class="statistics__value time">1</dd>
         </div>
-      </dialog>
+        <div class="statistics__wrapper">
+          <dt class="statistics__key">Всего кликов:</dt>
+          <dd class="statistics__value clicks">1</dd>
+        </div>
+        <div class="statistics__wrapper">
+          <dt class="statistics__key">Правильных:</dt>
+          <dd class="statistics__value correct-answers">1</dd>
+        </div>
+        <div class="statistics__wrapper">
+          <dt class="statistics__key">Неправильных:</dt>
+          <dd class="statistics__value error-answers">1</dd>
+        </div>
+        <div class="statistics__wrapper">
+          <dt class="statistics__key">Ошибки из-за дистрактора:</dt>
+          <dd class="statistics__value distractor-errors">1</dd>
+        </div>
+      </dl>
     </section>
     <!-- <script src="js/script.js"></script> -->
     <script src="js/main.js" type="module"></script>

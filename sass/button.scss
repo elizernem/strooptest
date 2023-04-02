@@ -8,7 +8,20 @@
   background-position: center;
   border: none;
 
-  @media (max-width: 780px) {
+  &--close {
+    background-image: url(../img/close.png);
+  }
+
+  &--back {
+    background-image: url(../img/restart.png);
+    order: 2;
+  }
+
+  &--pause {
+    background-image: url(../img/pause.png);
+  }
+
+  @media (max-width: 560px) {
     width: 35px;
     height: 35px;
     background-size: 30px 30px;

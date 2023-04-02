@@ -1,11 +1,11 @@
-let startTimer;
+// let startTimer;
 
-const switchScreen = (popup, mainScreen) => {
-  startTimer = new Date();
-  popup.classList.remove("open");
-  popup.classList.add("close");
-  mainScreen.classList.remove("close");
-  mainScreen.classList.add("open");
+const switchScreen = (toClose, toOpen) => {
+  // startTimer = new Date();
+  toClose.classList.remove("open");
+  toClose.classList.add("close");
+  toOpen.classList.remove("close");
+  toOpen.classList.add("open");
 };
 
-export { startTimer, switchScreen };
+export { switchScreen };

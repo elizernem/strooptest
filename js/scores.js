@@ -1,4 +1,4 @@
-import { startTimer } from "./popup.js";
+import { startTimer } from "./start-timer.js";
 const timerValue = document.querySelector(".time");
 const clicksNumberValue = document.querySelector(".clicks");
 const correctAnswersValue = document.querySelector(".correct-answers");
@@ -59,4 +59,11 @@ const showScore = () => {
   distractorErrorsValue.textContent = falseOfText;
 };
 
-export { getScore, showScore };
+const removeScore = () => {
+  clicks = 0;
+  correctAnswers = 0;
+  errorAnswers = 0;
+  falseOfText = 0;
+};
+
+export { getScore, showScore, removeScore };

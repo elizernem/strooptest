@@ -34,6 +34,8 @@ const instructionButtonsElement = Array.from(
   instructionButtons.querySelectorAll(".dialog__button")
 );
 
+const restartButton = document.querySelectorAll(".button--back");
+
 const classNames = {
   hidden: "visually-hidden",
   correctButton: "play-button--correct",
@@ -46,12 +48,12 @@ const classNames = {
 const colorsKeys = Object.keys(PLAY_COLORS);
 const colorsValues = Object.values(PLAY_COLORS);
 
-const switchScreen = (popup, mainScreen) => {
-  popup.classList.remove("open");
-  popup.classList.add("close");
-  mainScreen.classList.remove("close");
-  mainScreen.classList.add("open");
-};
+// const switchScreen = (toClose, toOpen) => {
+//   toClose.classList.remove("open");
+//   toClose.classList.add("close");
+//   toOpen.classList.remove("close");
+//   toOpen.classList.add("open");
+// };
 
 let startTimer;
 
