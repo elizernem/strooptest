@@ -1,6 +1,6 @@
 import { startTimer } from "./start-timer.js";
 const timerValue = document.querySelector(".time");
-const clicksNumberValue = document.querySelector(".clicks");
+const clicksNumberValue = document.querySelector(".clicks-count");
 const correctAnswersValue = document.querySelector(".correct-answers");
 const errorAnswersValue = document.querySelector(".error-answers");
 const distractorErrorsValue = document.querySelector(".distractor-errors");
@@ -66,4 +66,4 @@ const removeScore = () => {
   falseOfText = 0;
 };
 
-export { getScore, showScore, removeScore };
+export { getScore, showScore, removeScore, clicks };

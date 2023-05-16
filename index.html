@@ -23,6 +23,7 @@
       <button
         class="modal__settings button button--settings"
         type="button"
+        disabled
       ></button>
       <div class="modal__buttons-wrapper">
         <button class="modal__button modal__button--start start" type="button">
@@ -73,7 +74,7 @@
       </div>
     </section>
     <section class="settings close">
-      <div class="settings__main-wrapper">
+      <form class="settings__main-wrapper" method="get">
         <h2 class="settings__title title title--big">Настройки игры</h2>
         <!-- <div class="settings__wrapper"> -->
         <div class="settings__container settings__container--timer timer">
@@ -102,7 +103,12 @@
             ></label>
           </div>
         </div>
-        <input class="settings__range settings__range--timer" type="number" />
+        <input
+          class="settings__range settings__range--timer"
+          type="number"
+          min="0.5"
+          max="5"
+        />
         <div class="settings__container settings__container--clicks clicks">
           <h3 class="settings__subtitle title title--small">
             Ограничение по кликам
@@ -133,9 +139,14 @@
             </label>
           </div>
         </div>
-        <input class="settings__range settings__range--clicks" type="number" />
-        <button class="settings__submit" type="button">ОК</button>
-      </div>
+        <input
+          class="settings__range settings__range--clicks"
+          type="number"
+          min="1"
+          max="100"
+        />
+        <button class="settings__submit" type="submit">ОК</button>
+      </form>
       <button
         class="settings__close button button--close"
         type="button"
@@ -171,23 +182,23 @@
       <dl class="statistics__container">
         <div class="statistics__wrapper">
           <dt class="statistics__key">Время игры:</dt>
-          <dd class="statistics__value time">1</dd>
+          <dd class="statistics__value time"></dd>
         </div>
         <div class="statistics__wrapper">
           <dt class="statistics__key">Всего кликов:</dt>
-          <dd class="statistics__value clicks">1</dd>
+          <dd class="statistics__value clicks-count"></dd>
         </div>
         <div class="statistics__wrapper">
           <dt class="statistics__key">Правильных:</dt>
-          <dd class="statistics__value correct-answers">1</dd>
+          <dd class="statistics__value correct-answers"></dd>
         </div>
         <div class="statistics__wrapper">
           <dt class="statistics__key">Неправильных:</dt>
-          <dd class="statistics__value error-answers">1</dd>
+          <dd class="statistics__value error-answers"></dd>
         </div>
         <div class="statistics__wrapper">
           <dt class="statistics__key">Ошибки из-за дистрактора:</dt>
-          <dd class="statistics__value distractor-errors">1</dd>
+          <dd class="statistics__value distractor-errors"></dd>
         </div>
       </dl>
     </section>

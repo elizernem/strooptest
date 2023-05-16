@@ -10,6 +10,7 @@ import {
   removeColoredWord,
   removeBoolean,
 } from "./remove-values.js";
+// import { equal } from "./settings.js";
 
 const PLAY_COLORS = {
   red: "красный",
@@ -36,6 +37,14 @@ const coloredButtonOnClick = (event) => {
   giveWordText(colorWord, colorsValues);
   setCorrectAndFalsyButtons(colorButton);
   giveButtonsColor(colorButton, colorsKeys);
+  // equal();
 };
 
-export { PLAY_COLORS, colorsKeys, colorsValues, colorButton, colorWord, coloredButtonOnClick };
+export {
+  PLAY_COLORS,
+  colorsKeys,
+  colorsValues,
+  colorButton,
+  colorWord,
+  coloredButtonOnClick,
+};

@@ -15,7 +15,9 @@ import {
   coloredButtonOnClick,
 } from "./game.js";
 import { removeScore, showScore } from "./scores.js";
-import { giveVisibility, removeVisibility } from "./settings.js";
+import { giveVisibility, removeVisibility } from "./hiding.js";
+// import { resetSettings } from "./settings.js";
+// import { validateTime, validateCount } from "./form.js";
 
 const startButton = document.querySelector(".start");
 const instructionButtons = document.querySelector(".wrapper");
@@ -42,21 +44,7 @@ const settings = document.querySelector(".settings");
 const settingsClickRange = document.querySelector(".settings__range--clicks");
 const settingsTimerRange = document.querySelector(".settings__range--timer");
 
-settingsClickButton.addEventListener("click", () => {
-  giveVisibility(settingsClickRange);
-});
-
-settingsNoClickButton.addEventListener("click", () => {
-  removeVisibility(settingsClickRange);
-});
-
-settingsTimerButton.addEventListener("click", () => {
-  giveVisibility(settingsTimerRange);
-});
-
-settingsNoTimerButton.addEventListener("click", () => {
-  removeVisibility(settingsTimerRange);
-});
+const settingsSaveButton = document.querySelector(".settings__submit");
 
 startButton.addEventListener("click", () => {
   switchScreen(modal, gameBoard);
@@ -67,16 +55,37 @@ settingsButton.addEventListener("click", () => {
   switchScreen(modal, settings);
 });
 
-settingsCloseButton.addEventListener("click", () => {
-  switchScreen(settings, modal);
+settingsClickButton.addEventListener("click", () => {
+  giveVisibility(settingsClickRange);
+  // isFilledIn(settingsClickRange, settingsSaveButton);
+  // validateCount(settingsClickRange, settingsSaveButton);
 });
 
-// radioClick.forEach((radio) => {
-//   radio.addEventListener(
-//     "click",
-//     handleRadioClick(settingsClickButton, settingsClickRange)
-//   );
-// });
+settingsNoClickButton.addEventListener("click", () => {
+  removeVisibility(settingsClickRange);
+});
+
+settingsTimerButton.addEventListener("click", () => {
+  giveVisibility(settingsTimerRange);
+  // validateTime(settingsTimerRange, settingsSaveButton);
+  // isFilledIn(settingsTimerRange, settingsSaveButton);
+});
+
+settingsNoTimerButton.addEventListener("click", () => {
+  removeVisibility(settingsTimerRange);
+});
+
+settingsCloseButton.addEventListener("click", () => {
+  switchScreen(settings, modal);
+  removeVisibility(settingsClickRange);
+  removeVisibility(settingsTimerRange);
+  // resetSettings();
+});
+
+settingsSaveButton.addEventListener("click", () => {
+  switchScreen(settings, modal);
+  console.log(111);
+});
 
 restartButton.addEventListener("click", () => {
   removeScore();
@@ -110,3 +119,14 @@ pauseButton.addEventListener("click", () => {
 statisticCloseButton.addEventListener("click", () => {
   switchScreen(statistics, gameBoard);
 });
+
+// const timeValue = document.querySelector(".settings__range--timer");
+// const clickValue = document.querySelector(".settings__range--clicks");
+// const gameButtons = document.querySelector(".game__buttons-wrapper");
+// const saveSettingsButton = document.querySelector(".settings__submit");
+
+// saveSettingsButton.addEventListener("click", () => {
+// console.log(timeValue.value);
+// console.log(clickValue.value);
+// });
+
