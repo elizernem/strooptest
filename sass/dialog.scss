@@ -64,6 +64,12 @@
     display: block;
     width: 100px;
     height: fit-content;
+
+    @media (max-width: 510px) {
+      position: absolute;
+      top: 6px;
+      width: 179px;
+    }
   }
 }
 
